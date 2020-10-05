@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #info {
+            background-color: #00B7FF;
+            width: 80%;
+            margin: auto;
+        }
+
+        #info:focus {
+            background-color: #ffc44e;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info" contenteditable="true">
+        123
+    </div>
+
+    <script>
+        const info = document.querySelector('#info')
+        const storageKey = 'contentEdit'
+
+        const content = localStorage.getItem(storageKey)
+        if (content) {
+            info.innerHTML = content
+        }
+
+        info.addEventListener('input', function (event) {
+            console.log(info.innerText);
+            localStorage.setItem(storageKey, info.innerHTML)
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
