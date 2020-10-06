@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            background-color: #f1c500;
+            left: 500px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="rect"></div>
+
+    <script>
+        const rect = document.querySelector('.rect')
+        const listenr = (event) => {
+            console.log(event.type, event.target)
+        }
+
+        rect.addEventListener('dragenter', event => {
+            rect.style.backgroundColor = 'blue';
+        })
+        rect.addEventListener('dragleave', event => {
+            rect.style.backgroundColor = '#f1c500'
+        })
+        rect.addEventListener('dragover', event => {
+            event.preventDefault()
+        })
+        rect.addEventListener('drop', event => {
+            event.preventDefault()
+
+            console.log(event.dataTransfer.files)
+        })
+
+
+    </script>
+
+</body>
+
+</html>
