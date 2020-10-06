@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: rgb(46, 168, 128) 1px solid;
+            background-color: rgba(226, 226, 226, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+
+    <script>
+        const myCanvas = document.querySelector('#myCanvas');
+        const ctx = myCanvas.getContext('2d');
+
+        // arc(圓心x, 圓心y, 半徑, 起始角度, 結束角度, 是否為逆時針方向);
+        ctx.fillCircle = function (cx, cy, r) {
+            this.arc(cx, cy, r, 0, Math.PI * 2)
+            this.fill()
+        }
+
+        ctx.strokeStyle = 'gray'; // 設定畫筆顏色
+        ctx.lineWidth = 6; // 設定畫筆粗細
+        ctx.fillStyle = 'lightblue'; // 填滿的顏色
+
+
+
+        ctx.fillCircle(100, 100, 60)
+
+
+
+    </script>
+</body>
+
+</html>

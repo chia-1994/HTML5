@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: rgb(36, 150, 112) 1px solid;
+            background-color: rgba(226, 226, 226, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="800px" height="600px">
+
+    </canvas>
+
+    <script>
+        const myCanvas = document.querySelector('#mycanvas');
+        const ctx = myCanvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.moveTo(120, 220);
+        ctx.lineTo(200, 300);
+        ctx.lineTo(400, 50);
+        ctx.strokeStyle = '#CCCCCC';
+        ctx.lineWidth = 20;
+        ctx.lineCap = "round"//端點是圓的
+        ctx.lineJoin = "round"//交集點是圓的
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
