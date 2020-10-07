@@ -32,6 +32,7 @@
         const sendBtn = document.querySelector('#sendBtn');
         const wsOpen = (event) => {
             console.log(event);
+            ta.value = ''
             ta.value += '已連線 ---\n';
             connectBtn.style.display = 'none';
             disconnectBtn.style.display = 'block';
@@ -48,13 +49,12 @@
             connectBtn.style.display = 'block';
             disconnectBtn.style.display = 'none';
             sendBtn.style.display = 'none';
-            //ta.value = ''
         }
 
         document.addEventListener('click', (event) => {
             switch (event.target.id) {
                 case 'connectBtn':
-                    ws = new WebSocket('ws://echo.websocket.org/');
+                    ws = new WebSocket('ws://localhost:3000');
                     ws.addEventListener('open', wsOpen);
                     ws.addEventListener('message', wsMessage);
                     ws.addEventListener('close', wsClose);
