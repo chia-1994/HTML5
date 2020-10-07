@@ -7,6 +7,7 @@ const createEchoServer = server => {
         console.log('size: ', wsServer.clients.size);
         console.log('ip: ', req.connection.remoteAddress);
         console.log('port: ', req.connection.remotePort);
+        console.log('url: ', req.url);
         ws.on('message', msg => {
             ws.send(msg);
         });

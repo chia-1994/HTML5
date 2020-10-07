@@ -3,22 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-
-    </style>
+    <title>Title</title>
 </head>
 
 <body>
-
     <button id="connectBtn">連線</button>
     <button id="disconnectBtn" style="display: none">斷線</button>
     <br>
     <input type="text" id="inp">
     <button id="sendBtn" style="display: none">送出</button>
     <br>
-    <textarea id="ta" cols="30" rows="10"></textarea>
+    <textarea id="ta" cols="30" rows="10" readonly></textarea>
     <br>
 
 
@@ -30,15 +25,14 @@
         const connectBtn = document.querySelector('#connectBtn');
         const disconnectBtn = document.querySelector('#disconnectBtn');
         const sendBtn = document.querySelector('#sendBtn');
+
         const wsOpen = (event) => {
             console.log(event);
-            ta.value = ''
             ta.value += '已連線 ---\n';
             connectBtn.style.display = 'none';
             disconnectBtn.style.display = 'block';
             sendBtn.style.display = 'block';
         }
-        //接收訊息
         const wsMessage = (event) => {
             inp.value = ''
             ta.value += event.data + '\n';
@@ -50,11 +44,10 @@
             disconnectBtn.style.display = 'none';
             sendBtn.style.display = 'none';
         }
-
         document.addEventListener('click', (event) => {
             switch (event.target.id) {
                 case 'connectBtn':
-                    ws = new WebSocket('ws://localhost:3000/123');
+                    ws = new WebSocket('ws://localhost:3000');
                     ws.addEventListener('open', wsOpen);
                     ws.addEventListener('message', wsMessage);
                     ws.addEventListener('close', wsClose);
@@ -73,6 +66,8 @@
 
 
         });
+
+
 
     </script>
 </body>
